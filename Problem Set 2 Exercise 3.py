@@ -38,13 +38,13 @@ while remain >= epsilon:
         interest = mIR * remain
         remain += interest
         month += 1
-        if remain > 0:
-            lowerlim = (lowerlim + upperlim)/2
+        if remain > epsilon:
+            lowerlim = (minPay + upperlim)/2
         else:
-            upperlim = (lowerlim + upperlim)/2
+            upperlim = minPay
 
 minPay = round(minPay, 2)
-print(minPay)
+print("Lowest Payment: " + str(minPay))
 
 """
 You'll notice that in Problem 2, your monthly payment had to be a multiple of $10. Why did we make it that way? You can try running your code locally so that the payment can be any dollar and cent amount (in other words, the monthly payment is a multiple of $0.01). Does your code still work? It should, but you may notice that your code runs more slowly, especially in cases with very large balances and interest rates. (Note: when your code is running on our servers, there are limits on the amount of computing time each submission is allowed, so your observations from running this experiment on the grading system might be limited to an error message complaining about too much time taken.)
